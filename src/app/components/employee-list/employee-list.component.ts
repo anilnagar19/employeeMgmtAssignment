@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 import { Employee } from '../../model/employee.model';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,6 +14,7 @@ import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 })
 export class EmployeeListComponent implements OnInit {
     editMode: boolean = false;
+    mobileQuery: MediaQueryList;
     employes$ = this.indexedDBService.employes$;
 
     displayedColumns: string[] = ['name', 'position', 'from', 'to', 'actions'];
@@ -26,8 +28,11 @@ export class EmployeeListComponent implements OnInit {
 
     constructor(
         private dialog: MatDialog,
-        private indexedDBService: IndexedDbService
-    ) {}
+        private indexedDBService: IndexedDbService,
+        private mediaMatcher: MediaMatcher
+    ) {
+        this.mobileQuery = this.mediaMatcher.matchMedia('(max-width: 600px)');
+    }
 
     ngOnInit(): void {
         this.indexedDBService.openDatabase().then(() => {
@@ -41,8 +46,9 @@ export class EmployeeListComponent implements OnInit {
     }
 
     editEmployee(employee: Employee): void {
+        const dialogWidth = this.isMobile() ? '90vw' : '50vw';
         this.dialog.open(AddEmployeeComponent, {
-            width: '50vw',
+            width: dialogWidth,
             data: {
                 editMode: true,
                 employeeData: employee,
@@ -51,8 +57,10 @@ export class EmployeeListComponent implements OnInit {
     }
 
     openAddEmployeeDialog(): void {
+        const dialogWidth = this.isMobile() ? '90vw' : '50vw';
+
         this.dialog.open(AddEmployeeComponent, {
-            width: '50vw',
+            width: dialogWidth,
             data: {
                 editMode: false,
             },
@@ -117,5 +125,9 @@ export class EmployeeListComponent implements OnInit {
             return emp.toDate !== 'No Date';
         });
         return previousEmployees;
+    }
+
+    isMobile(): boolean {
+        return this.mobileQuery.matches;
     }
 }

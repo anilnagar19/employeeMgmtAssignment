@@ -51,3 +51,13 @@ width: 20%;
     .hidden-row {
         display: none;
       }
+      .card {
+        margin-top: 15px;
+        position: relative;
+    }
+
+    .cutomActionBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
