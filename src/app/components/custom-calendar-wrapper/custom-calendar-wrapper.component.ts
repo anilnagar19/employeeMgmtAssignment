@@ -10,6 +10,8 @@ import {
     ChangeDetectionStrategy,
     OnInit,
 } from '@angular/core';
+import * as moment from 'moment';
+
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
@@ -115,8 +117,12 @@ export class CustomCalendarWrapperComponent implements OnInit {
                     }
                 }
                 this.renderer.appendChild(this.calendarDays, div);
+                const formattedDate = this.getFormattedDateFromMonth(
+                    this.currentMonth.textContent
+                );
 
-                this.date = new Date(this.currentMonth.textContent);
+                this.date = new Date(formattedDate);
+
                 this.date.setMonth(this.date.getMonth());
 
                 let month = this.date.toLocaleDateString('en-US', {
@@ -139,6 +145,14 @@ export class CustomCalendarWrapperComponent implements OnInit {
         }
     }
 
+    getFormattedDateFromMonth(monthName: any) {
+        const inputMonth = moment().month(monthName); // Set the month using the month name
+        const formattedDate = inputMonth
+            .startOf('month')
+            .format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
+        return formattedDate;
+    }
+
     handleItemClick(div: any, selectedDay: any, month: any) {
         const allDivs = this.calendarDays.querySelectorAll('div');
 
@@ -153,7 +167,9 @@ export class CustomCalendarWrapperComponent implements OnInit {
     }
 
     goToPreviousAndNextMonth(month: string) {
-        this.date = new Date(this.currentMonth.textContent);
+        this.date = new Date(
+            this.getFormattedDateFromMonth(this.currentMonth.textContent)
+        );
         this.date.setMonth(this.date.getMonth() + (month === 'prev' ? -1 : 1));
 
         this.currentMonth.textContent = this.date.toLocaleDateString('en-US', {
