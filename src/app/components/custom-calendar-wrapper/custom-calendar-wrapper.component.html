@@ -47,13 +47,13 @@
 
       <div class="calendar">
         <div class="weekdays">
-          <div class="weekday-name">Su</div>
-          <div class="weekday-name">Mo</div>
-          <div class="weekday-name">Tu</div>
-          <div class="weekday-name">We</div>
-          <div class="weekday-name">Th</div>
-          <div class="weekday-name">Fr</div>
-          <div class="weekday-name">Sa</div>
+          <div class="weekday-name">Sun</div>
+          <div class="weekday-name">Mon</div>
+          <div class="weekday-name">Tue</div>
+          <div class="weekday-name">Wed</div>
+          <div class="weekday-name">Thu</div>
+          <div class="weekday-name">Fri</div>
+          <div class="weekday-name">Sat</div>
         </div>
         <div class="calendar-days" #calendarDaysElement></div>
       </div>
@@ -67,8 +67,8 @@
                 </span> 
             </mat-grid-tile>
             <mat-grid-tile colspan="3"> 
-                <button  mat-stroked-button color="primary" style="margin-right: 5px" (click)="closeModel()" >cancel</button>
-                <button mat-raised-button color="primary"(click)="saveDate()" [disabled]="selectedDate==='No Date' && dateType=='fromDate'">save</button>
+                <button  mat-stroked-button color="primary" style="margin-right: 5px;color: #1ea1f0;background: #edf8ff;" (click)="closeModel()"  >cancel</button>
+                <button mat-raised-button color="primary"(click)="saveDate()" [disabled]="selectedDate==='No Date' && dateType=='fromDate'" style="background: #1ea1f0;">save</button>
             </mat-grid-tile>
         </mat-grid-list>
       </div>

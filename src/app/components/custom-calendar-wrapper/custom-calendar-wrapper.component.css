@@ -68,7 +68,8 @@
 
 .weekday-name {
   color: #19181a;
-  font-weight: 700;
+  font-weight: 200;
+    font-size: 12px;
 }
 
 .current-day div,.month-day div {
@@ -148,6 +149,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 12px;
 }
 .selectedDate{
     font-size: 14px;
@@ -171,6 +173,7 @@
         background: #1ea1f1;
         color: #fff;
         border-radius: 50%;
+        font-size: 12px;
     }
 
     .prev-date {
@@ -187,4 +190,8 @@
     .prev-month,.next-month {
         opacity: 0;
         cursor: not-allowed;
+    }
+    .tool-btn-container .current-month {
+        font-weight: 500;
+        font-size: 14px;
     }

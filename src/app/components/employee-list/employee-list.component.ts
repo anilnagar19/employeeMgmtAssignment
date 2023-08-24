@@ -48,6 +48,7 @@ export class EmployeeListComponent implements OnInit {
     editEmployee(employee: Employee): void {
         const dialogWidth = this.isMobile() ? '90vw' : '50vw';
         this.dialog.open(AddEmployeeComponent, {
+            disableClose: true,
             width: dialogWidth,
             data: {
                 editMode: true,
@@ -60,6 +61,7 @@ export class EmployeeListComponent implements OnInit {
         const dialogWidth = this.isMobile() ? '90vw' : '50vw';
 
         this.dialog.open(AddEmployeeComponent, {
+            disableClose: true,
             width: dialogWidth,
             data: {
                 editMode: false,
