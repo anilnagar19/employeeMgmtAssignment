@@ -179,6 +179,7 @@ export class CustomCalendarWrapperComponent implements OnInit {
         let currentMonthText = new Date(
             this.getFormattedDateFromMonth(this.currentMonth.textContent)
         ).getMonth();
+
         let fromDateMonthText = new Date(
             this.getFormattedDateFromMonth(
                 this.employeeService.employee().fromDate
@@ -187,7 +188,10 @@ export class CustomCalendarWrapperComponent implements OnInit {
 
         this.renderCalendar();
 
-        if (currentMonthText === fromDateMonthText) {
+        if (
+            currentMonthText === fromDateMonthText &&
+            this.dateType === 'toDate'
+        ) {
             this.isPreviousMonthButtonDisabled = true;
         } else {
             this.isPreviousMonthButtonDisabled = false;
@@ -200,8 +204,6 @@ export class CustomCalendarWrapperComponent implements OnInit {
         allDivs.forEach((element: any) => {
             element.classList.remove('selected');
         });
-
-        // this.showSelectedDate();
     }
 
     highLightDate(futureDate: any) {
