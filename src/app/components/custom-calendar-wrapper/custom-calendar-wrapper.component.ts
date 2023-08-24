@@ -7,7 +7,6 @@ import {
     Output,
     EventEmitter,
     Input,
-    ChangeDetectionStrategy,
     OnInit,
 } from '@angular/core';
 import * as moment from 'moment';
@@ -22,8 +21,8 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class CustomCalendarWrapperComponent implements OnInit {
     @Input() dateType: string;
-    @Output() getFromToDate = new EventEmitter<string>();
     @Input() selectedFromDate: string;
+    @Output() getFromToDate = new EventEmitter<string>();
 
     @ViewChild('currentMonthElement', { static: true })
     currentMonthElement: ElementRef;

@@ -42,11 +42,19 @@ export class EmployeeListComponent implements OnInit {
 
     editEmployee(employee: Employee): void {
         this.dialog.open(AddEmployeeComponent, {
-            height: '25vw',
             width: '50vw',
             data: {
                 editMode: true,
                 employeeData: employee,
+            },
+        });
+    }
+
+    openAddEmployeeDialog(): void {
+        this.dialog.open(AddEmployeeComponent, {
+            width: '50vw',
+            data: {
+                editMode: false,
             },
         });
     }
@@ -87,15 +95,6 @@ export class EmployeeListComponent implements OnInit {
             .reduce((acc, char) => acc + char.charCodeAt(0), 0);
         const index = hash % this.colorList.length;
         return this.colorList[index];
-    }
-
-    openAddEmployeeDialog(): void {
-        this.dialog.open(AddEmployeeComponent, {
-            width: '70vw',
-            data: {
-                editMode: false,
-            },
-        });
     }
 
     hidePreviousEmployee(row: any): boolean {
