@@ -87,11 +87,7 @@
                       <mat-header-cell *matHeaderCellDef>NAME</mat-header-cell>
                       <mat-cell *matCellDef="let employee">
                           
-                          <div class="avatar-container">
-                              <div class="avatar" [ngStyle]="{'background-color': getBackgroundColor(employee.name)}">
-                                  {{ getInitials(employee.name) }}
-                              </div>
-                          </div>
+                         
                             
                           {{ employee.name | titlecase }}
                       </mat-cell>

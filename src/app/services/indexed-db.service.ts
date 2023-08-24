@@ -59,8 +59,8 @@ export class IndexedDbService {
             const request = store.add(employee);
 
             request.onsuccess = (event: any) => {
-                employee.id = event.target.result;
-                this.employes$.update((employes$) => [employee, ...employes$]);
+                //  employee.id = event.target.result;
+                this.getAllEmployees();
                 resolve();
             };
 
