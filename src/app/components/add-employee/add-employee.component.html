@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>{{data.editMode ? 'Edit':'Add'}} Employee </h2>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+    <form [formGroup]="employeeForm">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" formControlName="name" (blur)="onInputBlur()" >
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Position</mat-label>
+            <mat-select placeholder="Select Position" formControlName="position" (blur)="onInputBlur()">
+                <mat-option *ngFor="let position of positions" [value]="position" >{{ position }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="form-row">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>From Date</mat-label>
+                <input matInput placeholder="From Date" formControlName="fromDate" (click)="showDatePicker('fromDate')" readonly>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>To Date</mat-label>
+                <input matInput placeholder="To Date" (click)="showDatePicker('toDate')" formControlName="toDate" readonly >
+            </mat-form-field>
+            
+         </div>  
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions  layout="row">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-raised-button  color="primary" (click)="addEditEmployee()"  [disabled]="employeeForm.invalid">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,190 @@
+
+
+.card {
+  width: 316px;
+  height: fit-content;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #efefef;
+}
+
+.calendar-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #efefef;
+    justify-content: center;
+}
+
+.calendar-toolbar > .current-month {
+    font-size: 14px;
+    font-weight: bold;
+    color: #19181a;
+}
+
+.tool-btn-container .month-btn {
+    width: 30px;
+    height: 30px;
+    color: #19181a;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+}
+
+.tool-btn-container .month-btn[disabled]{
+    color: #c3c3c3;
+}
+.calendar{
+    border-bottom: 1px solid #efefef;
+}
+
+.weekdays,
+.calendar-days {
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline: 18px;
+}
+
+.calendar-days {
+  padding-bottom: 12px;
+}
+
+.weekday-name,.current-day,.month-day
+{
+  width: 40px;
+  height: 40px;
+  color: #19181a;
+  text-align: center;
+  line-height: 40px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.weekday-name {
+  color: #19181a;
+  font-weight: 700;
+}
+
+.current-day div,.month-day div {
+    border-radius: 30px;
+    padding: 5px;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-day div {
+    background-color: #1ea1f1;
+}
+
+.current-day {
+    border-radius: 30px;
+  font-weight: 700;
+  transition: 0.5s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0px 0px 0px 1.5px #1ea1f1;
+}
+
+.padding-day {
+  color: #a5a5a5;
+  user-select: none;
+}
+
+.calendar-toolbar > [class$="month-btn"]:hover,
+
+.btn:hover {
+  background-color: #f8f7fa;
+  color: #1ea1f1;
+  transition: 0.1s;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px 1.5px #1ea1f1;
+}
+
+.calendar-toolbar > [class$="month-btn"]:focus,
+
+.btn:focus {
+  background-color: #1ea1f1;
+  color: #f8f7fa;
+}
+.month-day div:hover{
+    background-color: #f8f7fa;
+    color: #1ea1f1;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 0px 1.5px #1ea1f1;
+}
+.month-day div:focus{
+    background-color: #1ea1f1;
+    color: #f8f7fa;
+}
+
+.goto-buttons {
+    padding: 18px;
+    padding-bottom: 0;
+}
+
+.btn {
+    background: #edf8ff;
+    border: none;
+    width: 100%;
+    color: #1ea1f1;
+    font-size: 0.8rem;
+    padding: 5px;
+    box-shadow: 0px 0px 0px #efefef;
+    border-radius: 2px;
+}
+.month-day{
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selectedDate{
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .cutom-calendar-icon{
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .btn-container {
+        width: 100%;
+        padding: 5px 2px;
+        text-align: center;
+    }
+
+    .selected {
+        background: #1ea1f1;
+        color: #fff;
+        border-radius: 50%;
+    }
+
+    .prev-date {
+        cursor: not-allowed;
+        opacity: .5;
+    }
+
+    .tool-btn-container{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        justify-content: space-between;
+    }
+    .prev-month,.next-month {
+        opacity: 0;
+        cursor: not-allowed;
+    }

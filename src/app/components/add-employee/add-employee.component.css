@@ -1,0 +1,29 @@
+
+  .full-width {
+    width: 100%;
+  }
+  .custom-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-header button {
+    margin: 0 5px;
+  }
+  
+  .custom-header {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  h2{
+    margin: 0;
+}
+.form-row {
+    display: flex;
+    gap: 16px; /* Adjust the gap between form fields */
+  }
+  mat-dialog-actions{
+    border-top: 1px solid #e0e0e0;
+}

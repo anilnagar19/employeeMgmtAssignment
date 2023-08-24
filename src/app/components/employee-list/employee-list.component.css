@@ -1,0 +1,53 @@
+
+
+.mat-table {
+    width: 100%;
+}
+  
+.mat-header-cell, .mat-cell {
+    padding: 8px 16px;
+}
+.avatar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+  
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #007bff; /* Customize the background color as needed */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.add-btn{
+float: right;
+}
+
+.mat-elevation-z8{
+    margin-top: 20px;
+    box-shadow: none; 
+}
+
+.no-data .imgContainer{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.no-data img{
+width: 20%;
+}
+.no-data h1{
+    text-align: center;
+    }
+
+    .hidden-row {
+        display: none;
+      }

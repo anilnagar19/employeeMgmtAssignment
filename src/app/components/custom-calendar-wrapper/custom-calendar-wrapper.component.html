@@ -1,0 +1,77 @@
+
+    <div class="card">
+        
+        <div class="goto-buttons">
+            <mat-grid-list cols="2" rowHeight="30px">
+
+                <mat-grid-tile *ngIf="dateType==='toDate'">
+                    <div class="btn-container">
+                        <button type="button" (click)="selectNoDate()" class="btn today">No Date</button>
+                    </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <div class="btn-container">
+                        <button type="button" (click)="goToDateFromToday('today')" class="btn today">Today</button>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile  *ngIf="dateType==='fromDate'"> 
+                    <div class="btn-container">
+                        <button type="button" class="btn next-year" (click)="goToDateFromToday('nextMon')">Next Monday</button>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile  *ngIf="dateType==='fromDate'">
+                    <div class="btn-container">
+                        <button type="button" class="btn next-year" (click)="goToDateFromToday('nextTue')">Next Tuesday</button>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile  *ngIf="dateType==='fromDate'"> 
+                    <div class="btn-container">
+                        <button type="button" class="btn prev-year"(click)="goToDateFromToday('afterWeek')">After 1 week</button>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+
+      <div class="calendar-toolbar">
+        <div class="tool-btn-container">
+            <button class="prev month-btn" (click)="goToPreviousAndNextMonth('prev')" [disabled]="isPreviousMonthButtonDisabled" >
+                <mat-icon>arrow_left</mat-icon>
+            </button>
+            <div class="current-month" #currentMonthElement></div>
+            <button class="next month-btn" (click)="goToPreviousAndNextMonth('next')">
+                <mat-icon>arrow_right</mat-icon>
+            </button>
+        </div>
+      </div>
+
+      <div class="calendar">
+        <div class="weekdays">
+          <div class="weekday-name">Su</div>
+          <div class="weekday-name">Mo</div>
+          <div class="weekday-name">Tu</div>
+          <div class="weekday-name">We</div>
+          <div class="weekday-name">Th</div>
+          <div class="weekday-name">Fr</div>
+          <div class="weekday-name">Sa</div>
+        </div>
+        <div class="calendar-days" #calendarDaysElement></div>
+      </div>
+
+      <div class="actionBtns">
+        <mat-grid-list cols="5" rowHeight="50px">
+            <mat-grid-tile colspan="2">
+                <span class="selectedDate">
+                    <mat-icon class="cutom-calendar-icon">calendar_today</mat-icon>
+                    {{selectedDate}}
+                </span> 
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3"> 
+                <button  mat-stroked-button color="primary" style="margin-right: 5px" (click)="closeModel()" >cancel</button>
+                <button mat-raised-button color="primary"(click)="saveDate()" [disabled]="selectedDate==='No Date' && dateType=='fromDate'">save</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+    </div>
+    

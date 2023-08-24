@@ -1,0 +1,15 @@
+.flex-spacer {
+    flex: 1;
+}
+
+.mat-toolbar .mat-button {
+    margin-left: 20px;
+}
+
+.app-container{
+    padding: 20px;
+    
+}
+body{
+    background: #f2f2f2;
+}

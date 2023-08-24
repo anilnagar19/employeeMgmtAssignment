@@ -1,0 +1,121 @@
+
+    <h2>Employee List
+        <span class="flex-spacer"></span>
+        <button mat-raised-button color="primary" (click)="openAddEmployeeDialog()" class="add-btn">Add Employee</button>
+    </h2>
+    <mat-divider></mat-divider>
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Current Employees">    
+            <mat-table *ngIf="getCurrentEmployee().length" [dataSource]="getCurrentEmployee()" class="mat-elevation-z8" matSort>
+            <!-- Define columns -->
+            <ng-container matColumnDef="name" >
+              <mat-header-cell *matHeaderCellDef>NAME</mat-header-cell>
+              <mat-cell *matCellDef="let employee">
+                  
+                  <div class="avatar-container">
+                      <div class="avatar" [ngStyle]="{'background-color': getBackgroundColor(employee.name)}">
+                          {{ getInitials(employee.name) }}
+                      </div>
+                  </div>
+                    
+                  {{ employee.name | titlecase }}
+              </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef>POSITION</mat-header-cell>
+                <mat-cell *matCellDef="let employee">{{ employee.position }}</mat-cell>
+            </ng-container>
+      
+            <ng-container matColumnDef="from">
+                <mat-header-cell *matHeaderCellDef>FROM</mat-header-cell>
+                <mat-cell *matCellDef="let employee">{{ employee.fromDate }}</mat-cell>
+            </ng-container>
+      
+            <ng-container matColumnDef="to">
+                <mat-header-cell *matHeaderCellDef>TO</mat-header-cell>
+                <mat-cell *matCellDef="let employee">{{ employee.toDate==='No Date'?'-':employee.toDate }}</mat-cell>
+            </ng-container>
+       
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
+                <mat-cell *matCellDef="let employee">
+                    <button mat-icon-button color="primary" (click)="editEmployee(employee)">
+                    <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteEmployee(employee)">
+                    <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+        
+            <!-- Define table row -->
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'hidden-row': hidePreviousEmployee(row) }"></mat-row>
+            </mat-table>
+            <div *ngIf="!getCurrentEmployee().length" class="no-data">
+                <div class="imgContainer" >
+                    <img src="../../../assets/no_record.png" alt="image">
+                </div>
+                <h1>No Employee records found !!!</h1>
+            </div>
+        </mat-tab>
+        <mat-tab label="Previous Employees">
+            <mat-table *ngIf="getPreviousEmployee().length" [dataSource]="getPreviousEmployee()" class="mat-elevation-z8" matSort>
+            <!-- Define columns -->
+            <ng-container matColumnDef="name" >
+              <mat-header-cell *matHeaderCellDef>NAME</mat-header-cell>
+              <mat-cell *matCellDef="let employee">
+                  
+                  <div class="avatar-container">
+                      <div class="avatar" [ngStyle]="{'background-color': getBackgroundColor(employee.name)}">
+                          {{ getInitials(employee.name) }}
+                      </div>
+                  </div>
+                    
+                  {{ employee.name | titlecase }}
+              </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef>POSITION</mat-header-cell>
+                <mat-cell *matCellDef="let employee">{{ employee.position }}</mat-cell>
+            </ng-container>
+      
+            <ng-container matColumnDef="from">
+                <mat-header-cell *matHeaderCellDef>FROM</mat-header-cell>
+                <mat-cell *matCellDef="let employee">{{ employee.fromDate }}</mat-cell>
+            </ng-container>
+      
+            <ng-container matColumnDef="to">
+                <mat-header-cell *matHeaderCellDef>TO</mat-header-cell>
+                <mat-cell *matCellDef="let employee">{{ employee.toDate==='No Date'?'-':employee.toDate }}</mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
+                <mat-cell *matCellDef="let employee">
+                    <button mat-icon-button color="primary" (click)="editEmployee(employee)">
+                    <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteEmployee(employee)">
+                    <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+        
+            <!-- Define table row -->
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'hidden-row': hideCurrentEmployee(row) }"></mat-row>
+            </mat-table>
+
+            <div *ngIf="!getPreviousEmployee().length" class="no-data">
+                <div class="imgContainer" >
+                    <img src="../../../assets/no_record.png" alt="image">
+                </div>
+                <h1>No Employee records found !!!</h1>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+  
