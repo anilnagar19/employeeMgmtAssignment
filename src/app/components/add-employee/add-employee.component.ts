@@ -38,10 +38,7 @@ export class AddEmployeeComponent {
     ) {
         this.employeeForm = this.formBuilder.group({
             name: new FormControl('', Validators.required),
-            toDate: new FormControl(
-                { value: '', disabled: true },
-                Validators.required
-            ),
+            toDate: new FormControl({ value: '', disabled: true }),
             position: new FormControl('', Validators.required),
             fromDate: new FormControl('', Validators.required),
         });

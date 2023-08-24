@@ -258,11 +258,14 @@ export class CustomCalendarWrapperComponent implements OnInit {
 
     goToToday() {
         const today = new Date();
-        if (today.getTime() >= new Date(this.selectedFromDate).getTime()) {
+        if (
+            today.getTime() >= new Date(this.selectedFromDate).getTime() &&
+            this.dateType === 'toDate'
+        ) {
+            this.selectedDate = 'No Date';
+        } else {
             this.showSelectedDate(today);
             this.highLightDate(today);
-        } else {
-            this.selectedDate = 'No Date';
         }
     }
 
@@ -344,8 +347,6 @@ export class CustomCalendarWrapperComponent implements OnInit {
 
     goToDateFromToday(goTo: any) {
         this.resetCalendarToCurrentMonth();
-        const today = new Date();
-        const dayOfWeek = today.getDay();
 
         if (goTo === 'nextMon') {
             this.getToNextMonday();
