@@ -45,6 +45,10 @@ export class IndexedDbService {
     addEmployee(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             let employee = this.employeeService.employee();
+            if (employee.toDate === undefined) {
+                employee.toDate = 'No Date';
+            }
+
             if (!this.db) {
                 reject('IndexedDB is not yet open.');
                 return;
