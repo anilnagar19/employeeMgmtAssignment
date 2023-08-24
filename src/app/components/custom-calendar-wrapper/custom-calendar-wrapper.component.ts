@@ -259,7 +259,7 @@ export class CustomCalendarWrapperComponent implements OnInit {
     goToToday() {
         const today = new Date();
         if (
-            today.getTime() >= new Date(this.selectedFromDate).getTime() &&
+            today.getTime() <= new Date(this.selectedFromDate).getTime() &&
             this.dateType === 'toDate'
         ) {
             this.selectedDate = 'No Date';
