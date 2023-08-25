@@ -6,3 +6,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. I've implemented distinct user interfaces for the employee list screen on both mobile and desktop/tablet platforms.
 2. On mobile devices, employee data will be displayed using a card-based UI, while on tablets and desktops, the data will be presented in a table format.
 3. The "To Monday," "To Tuesday," and "After 1 Week" buttons utilize the current date as a reference point for calculating the subsequent dates.
+4. The "To" date will either be equal to or later than the "From" date.
+5. The employee name must consist of alphabetic characters only.
