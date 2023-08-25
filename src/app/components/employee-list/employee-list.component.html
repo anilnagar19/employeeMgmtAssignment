@@ -57,7 +57,7 @@
                           <mat-card-subtitle>{{ employee.position }}</mat-card-subtitle>
                         </mat-card-header>
                         <mat-card-content>
-                            <p>{{ employee.toDate==='No Date'?'From ':'' }}{{ employee.fromDate }} {{ employee.toDate==='No Date'?'':'- '+employee.toDate }}</p>
+                            <p>From {{ employee.fromDate }}</p>
                         </mat-card-content>
                       </mat-card>
 
@@ -133,7 +133,7 @@
                           <mat-card-subtitle>{{ employee.position }}</mat-card-subtitle>
                         </mat-card-header>
                         <mat-card-content>
-                          <p>{{ employee.toDate==='No Date'?'From ':'' }}{{ employee.fromDate }} {{ employee.toDate==='No Date'?'':'- '+employee.toDate }}</p>
+                          <p>{{ employee.fromDate }} - {{ employee.toDate }}</p>
                         </mat-card-content>
                     
                       </mat-card>

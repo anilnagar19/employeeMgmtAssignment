@@ -37,7 +37,10 @@ export class AddEmployeeComponent {
         private dialogRef: MatDialogRef<AddEmployeeComponent>
     ) {
         this.employeeForm = this.formBuilder.group({
-            name: new FormControl('', Validators.required),
+            name: new FormControl('', [
+                Validators.required,
+                Validators.pattern('[ a-zA-Z]*'),
+            ]),
             toDate: new FormControl({ value: '', disabled: true }),
             position: new FormControl('', Validators.required),
             fromDate: new FormControl('', Validators.required),

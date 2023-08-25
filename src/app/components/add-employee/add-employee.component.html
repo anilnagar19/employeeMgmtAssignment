@@ -4,7 +4,7 @@
     <form [formGroup]="employeeForm">
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Name</mat-label>
-            <input matInput placeholder="Name" formControlName="name" (blur)="onInputBlur()" >
+            <input matInput placeholder="Name" formControlName="name" (blur)="onInputBlur()" pattern="[ a-zA-Z]*" >
         </mat-form-field>
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Position</mat-label>
